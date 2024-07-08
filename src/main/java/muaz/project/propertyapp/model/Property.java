@@ -2,8 +2,14 @@ package muaz.project.propertyapp.model;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Entity;
+
+@Entity
 public class Property {
     
+    @Id
     private int propertyId;
     private int price;
     private Type propertyType;
