@@ -1,6 +1,7 @@
 package muaz.project.propertyapp.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import muaz.project.propertyapp.model.Property;
@@ -8,7 +9,10 @@ import muaz.project.propertyapp.repository.PropertyRepository;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -26,6 +30,10 @@ public class PropertyController {
         return propertyRepository.findAll();
     }
     
-
+    @ResponseStatus(HttpStatus.CREATED) 
+    @PostMapping("") 
+    void create(@RequestBody Property property) { 
+        propertyRepository.create(property);  
+    }
     
 }

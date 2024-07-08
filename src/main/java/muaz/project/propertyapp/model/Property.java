@@ -4,12 +4,14 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
 
+/*
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+*/
 
-@Entity
 public class Property {
     
-    @Id
     private int propertyId;
     private int price;
     private Type propertyType;
@@ -65,5 +67,10 @@ public class Property {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTitle() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTitle'");
     }
 }
