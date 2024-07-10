@@ -4,23 +4,48 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
 
-/*
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-*/
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
+@Entity(name = "Property")
+@Table(name = "Property")
 public class Property {
-    
-    private int propertyId;
+
+    @jakarta.persistence.Id
+    @SequenceGenerator(
+        name = "student_sequence",
+        sequenceName = "student_sequence",
+        allocationSize = 1, // increment size by 1 each time
+        initialValue = 1 //start at 1
+    )
+    @GeneratedValue (
+        strategy = GenerationType.SEQUENCE,
+        generator = "student_sequence" // what we used above
+    )
+    private Long propertyId;
     private int price;
     private Type propertyType;
     private LocalDateTime datePosted;
     private String marketingAgent;
-    private String url;
+
+    // Constructors
+    public Property() {
+
+    }
+
+    public Property(Long i, int price, Type propertyType, LocalDateTime datePosted, String marketingAgent) {
+        this.propertyId = i;
+        this.price = price;
+        this.propertyType = propertyType;
+        this.datePosted = datePosted;
+        this.marketingAgent = marketingAgent;
+    }
 
     // Getters
-    public int getPropertyId() {
+    public Long getPropertyId() {
         return propertyId;
     }
 
@@ -40,12 +65,8 @@ public class Property {
         return marketingAgent;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
     // Setters
-    public void setPropertyId(int propertyId) {
+    public void setPropertyId(Long propertyId) {
         this.propertyId = propertyId;
     }
     
@@ -63,10 +84,6 @@ public class Property {
 
     public void setMarketingAgent(String marketingAgent) {
         this.marketingAgent = marketingAgent;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public String getTitle() {

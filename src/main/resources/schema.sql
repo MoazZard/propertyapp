@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS Property (
-    propertyid INT NOT NULL,
+    property_id BIGINT NOT NULL,
     price INT NOT NULL,
-    dateposted timestamp NOT NULL,
-    propertytype VARCHAR(12) NOT NULL,
-    marketingagent VARCHAR(250),
-    PRIMARY KEY (propertyid)
+    date_posted timestamp NOT NULL,
+    property_type VARCHAR(12) NOT NULL,
+    marketing_agent VARCHAR(250),
+    PRIMARY KEY (property_id)
 );

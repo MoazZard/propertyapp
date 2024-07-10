@@ -30,10 +30,11 @@ public class PropertyController {
         return propertyRepository.findAll();
     }
     
+    /*
     @ResponseStatus(HttpStatus.CREATED) 
     @PostMapping("") 
     void create(@RequestBody Property property) { 
-        propertyRepository.create(property);  
+        propertyRepository.;  
     }
-    
+    */
 }

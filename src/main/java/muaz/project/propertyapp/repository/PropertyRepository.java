@@ -1,34 +1,18 @@
 package muaz.project.propertyapp.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.Assert;
 
 import muaz.project.propertyapp.model.Property;
 
 import java.util.List;
 
-import org.springframework.jdbc.core.simple.JdbcClient;
-
 @Repository
-public class PropertyRepository {
+public interface PropertyRepository extends JpaRepository<Property, Long> {
+    // NOTES:
+    // JDBC and JPA differ in abstraction, JDBC is lower level standard for interaction with databases whilst JPA is higher level.
+    // JPA helps avoid more boilerplate code and the developer would have to deal with sql less and more with the classes.
+    // JPA = API for accessing, persisting and managing data between java objects.
+    // Object persistance = individual objects, can outlive application process by saving into data stores
 
-    private final JdbcClient jdbcClient; // Dependency injection
-
-    public PropertyRepository(JdbcClient jdbcClient) {
-        this.jdbcClient = jdbcClient;
-    }
-
-    public List<Property> findAll() {
-        return jdbcClient.sql("select * from property")
-        .query(Property.class) // mapping to
-        .list(); // turn into a list
-    }
-
-    public void create(Property property) {
-        var updated = jdbcClient.sql("INSERT INTO Property (propertyId, price, propertyType, datePosted, marketingAgent, url) " + "VALUES (?, ?, ?, ?, ?, ?)")
-        .params(List.of(property.getPropertyId(), property.getPrice(), property.getPropertyType().toString() , property.getDatePosted(), property.getMarketingAgent(), property.getUrl())) // SPECIFIES WHATS TO BE PARAMETERISED
-        .update(); // Function used in CREATE, UPDATE and DELETE and returns how many rows affected
-
-        Assert.state(updated == 1, "Failed to CREATE run: " + property.getTitle() ); // we want to make sure only 1 row is affected, otherwise message is sent
-    }
 }
