@@ -2,8 +2,6 @@ package muaz.project.propertyapp.model;
 
 import java.time.LocalDateTime;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,14 +14,14 @@ public class Property {
 
     @jakarta.persistence.Id
     @SequenceGenerator(
-        name = "student_sequence",
-        sequenceName = "student_sequence",
+        name = "property_sequence",
+        sequenceName = "property_sequence",
         allocationSize = 1, // increment size by 1 each time
         initialValue = 1 //start at 1
     )
     @GeneratedValue (
         strategy = GenerationType.SEQUENCE,
-        generator = "student_sequence" // what we used above
+        generator = "property_sequence" // what we used above
     )
     private Long propertyId;
     private int price;
