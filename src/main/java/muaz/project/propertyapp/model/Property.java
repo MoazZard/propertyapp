@@ -84,8 +84,8 @@ public class Property {
         this.marketingAgent = marketingAgent;
     }
 
-    public String getTitle() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTitle'");
+    public String toString() {
+        return marketingAgent;
+        
     }
 }
