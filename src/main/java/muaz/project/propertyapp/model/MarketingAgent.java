@@ -72,6 +72,7 @@ public class MarketingAgent {
     }
 
     //implement one to many for with mappedBy: marketingAgent
+    // study entity relationships
 
     // Override toString
     @Override
