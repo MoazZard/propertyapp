@@ -1,14 +1,21 @@
 package muaz.project.propertyapp.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Entity
+@Entity(name = "MarketingAgent")
 @Table(name = "MarketingAgent")
 public class MarketingAgent {
+
+    //entity relationships
+    @OneToMany(mappedBy = "marketingAgents")
+    private List<Property> properties;
 
     @jakarta.persistence.Id
     @SequenceGenerator(

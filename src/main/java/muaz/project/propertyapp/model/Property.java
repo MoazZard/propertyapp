@@ -1,16 +1,26 @@
 package muaz.project.propertyapp.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity(name = "Property")
 @Table(name = "Property")
 public class Property {
+
+    //entity relationships
+    @ManyToOne
+    @JoinTable(
+        name = "marketing_property"
+    )
+    private MarketingAgent marketingAgents;
 
     @jakarta.persistence.Id
     @SequenceGenerator(
