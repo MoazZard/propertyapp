@@ -23,10 +23,10 @@ public class PropertyappApplication {
     CommandLineRunner cmdRunner(PropertyRepository propertyRepository) {
         return args -> {
             // make a property
-            Property property = new Property((long) 793,100000,Type.BUNGALOW,LocalDateTime.now(),"John Doe");
+            Property property = new Property((long) 793,100000,Type.BUNGALOW,LocalDateTime.now());
             propertyRepository.save(property);
 
-            Property property1 = new Property((long) 794,120000,Type.BUNGALOW,LocalDateTime.now(),"John Dover");
+            Property property1 = new Property((long) 794,120000,Type.BUNGALOW,LocalDateTime.now());
             propertyRepository.save(property1);
         };
     }

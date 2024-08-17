@@ -18,8 +18,8 @@ public class Property {
 
     //entity relationships
     @ManyToOne
-    @JoinColumn(name = "properties")
-    private MarketingAgent marketingAgents;
+    @JoinColumn(name = "marketingAgent_id")
+    private MarketingAgent marketingAgent;
 
     @jakarta.persistence.Id
     @SequenceGenerator(
@@ -36,19 +36,17 @@ public class Property {
     private int price;
     private Type propertyType;
     private LocalDateTime datePosted;
-    private String marketingAgent;
 
     // Constructors
     public Property() {
 
     }
 
-    public Property(Long i, int price, Type propertyType, LocalDateTime datePosted, String marketingAgent) {
+    public Property(Long i, int price, Type propertyType, LocalDateTime datePosted) {
         this.propertyId = i;
         this.price = price;
         this.propertyType = propertyType;
         this.datePosted = datePosted;
-        this.marketingAgent = marketingAgent;
     }
 
     // Getters
@@ -68,10 +66,6 @@ public class Property {
         return datePosted;
     }
 
-    public String getMarketingAgent() {
-        return marketingAgent;
-    }
-
     // Setters
     public void setPropertyId(Long propertyId) {
         this.propertyId = propertyId;
@@ -87,14 +81,5 @@ public class Property {
 
     public void setDatePosted(LocalDateTime datePosted) {
         this.datePosted = datePosted;
-    }
-
-    public void setMarketingAgent(String marketingAgent) {
-        this.marketingAgent = marketingAgent;
-    }
-
-    public String toString() {
-        return marketingAgent;
-        
     }
 }

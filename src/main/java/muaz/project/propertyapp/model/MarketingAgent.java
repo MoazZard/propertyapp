@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class MarketingAgent {
 
     //entity relationships
-    @OneToMany(mappedBy = "marketingAgents")
+    @OneToMany(mappedBy = "marketingAgent")
     private List<Property> properties;
 
     @jakarta.persistence.Id
