@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
@@ -17,9 +18,7 @@ public class Property {
 
     //entity relationships
     @ManyToOne
-    @JoinTable(
-        name = "marketing_property"
-    )
+    @JoinColumn(name = "properties")
     private MarketingAgent marketingAgents;
 
     @jakarta.persistence.Id
