@@ -50,6 +50,10 @@ public class Property {
     }
 
     // Getters
+    public MarketingAgent getMarketingAgent() {
+        return marketingAgent;
+    }
+
     public Long getPropertyId() {
         return propertyId;
     }
