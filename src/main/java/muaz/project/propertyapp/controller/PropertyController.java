@@ -50,7 +50,7 @@ public class PropertyController {
         } 
         else if (propertyType != null) {
             return propertyRepository.findAll().stream()
-            .filter(property -> propertyType.equals(property.getPropertyType()))
+            .filter(property -> propertyType.equals(property.getPropertyType().toString()))
             .collect(Collectors.toList());
         } 
         else if (marketingAgent != null) {
@@ -65,9 +65,6 @@ public class PropertyController {
     private int price;
     private Type propertyType;
     private LocalDateTime datePosted; */
-    
-
-
 
     @ResponseStatus(HttpStatus.CREATED) 
     @PostMapping
@@ -77,3 +74,13 @@ public class PropertyController {
 
     
 }
+
+/* example json request body
+{ 
+  "propertyId": 1,
+  "price": 100000,
+  "propertyType": "BUNGALOW",
+  "datePosted": "2024-07-07T12:00:00",
+  "marketingAgent": "John Doe"
+}
+ */
