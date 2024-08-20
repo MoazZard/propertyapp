@@ -11,6 +11,7 @@ import muaz.project.propertyapp.repository.PropertyRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +22,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api/property")
 public class PropertyController {
 
-    private PropertyRepository propertyRepository; // Dependency injection (inversion of control framework)
+    private PropertyRepository propertyRepository; // Constructor Dependency injection (inversion of control framework)
 
+    @Autowired
     public PropertyController(PropertyRepository propertyRepository){
         this.propertyRepository = propertyRepository;
     }

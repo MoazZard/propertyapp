@@ -46,11 +46,11 @@ public class Property {
 
     }
 
-    public Property(Long i, int price, Type propertyType, LocalDateTime datePosted) {
-        this.propertyId = i;
+    public Property(int price, Type propertyType, LocalDateTime datePosted) {
         this.price = price;
         this.propertyType = propertyType;
         this.datePosted = datePosted;
+        //this.marketingAgent = marketingAgent;
     }
 
     // Getters
